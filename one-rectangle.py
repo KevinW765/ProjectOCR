@@ -6,6 +6,8 @@ import json
 from jsonpath import jsonpath
 
 with open('json-doc/via_project_18Jul2022_22h36m_json.json') as json_file:
+#with open('json-doc/via_project_19Jul2022_22h46m_json_right_border.json') as json_file:
+#with open('json-doc/via_project_19Jul2022_22h46m_json_right_bottom_border.json') as json_file:
     via_file = json.load(json_file)
 
 # Extract element content from JSON #
@@ -19,18 +21,18 @@ width_value = jsonpath(via_file, "$..shape_attributes.width")
 height_value = jsonpath(via_file, "$..shape_attributes.height")
 element_region_value = jsonpath(via_file, "$..region_attributes.HTML element")
 
-file_path = 'img/' + filename_value[0]
+file_path = 'image/' + filename_value[0]
 
 img = Image.open(file_path)
 w = img.width
 h = img.height
 
 # Build ElementTree #
-root = ET.Element("div")
-div1 = ET.SubElement(root, "div")
-div1.set('class', 'div1')
-div2 = ET.SubElement(div1, "div")
-div2.set('class', 'div2')
+root = ET.Element("table")
+table1 = ET.SubElement(root, "table")
+table1.set('class', 'table1')
+table2 = ET.SubElement(table1, "tr")
+table2.set('class', 'table2')
 
 # Convert to XML #
 tree = ET.ElementTree(root)
@@ -44,7 +46,7 @@ index_page = """
 <head>
     <meta charset="UTF-8">
     <style>
-        .div1 {
+        .table1 {
             position:relative;
             background: url(""" + str(file_path) + """) no-repeat center;
             height: """ + str(h) + """px;
@@ -52,7 +54,7 @@ index_page = """
             border: 5px solid black;
             display: block;
         }
-        .div2 {
+        .table2 {
             position:relative;
             background-color: transparent;
             height: """ + str(height_value[0]) + """px;
@@ -67,18 +69,6 @@ index_page = """
 </head>
 <body>
         """ + str(xml) + """
-        <table style=
-            "margin-left: """ + str(x_value[0]) + """px; 
-            margin-top: """ + str(y_value[0]) + """px; 
-            width: """ + str(width_value[0]) + """px; 
-            height: """ + str(height_value[0]) + """px; 
-            border: 5px solid yellow">
-            <tbody>
-                <tr >
-                    <td>Name Input block</td>
-                </tr>
-            </tbody>
-        </table>
 </body>
 </html>
 """
