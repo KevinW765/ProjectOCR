@@ -29,9 +29,9 @@ h = img.height
 
 # Build ElementTree #
 root = ET.Element("table")
-table1 = ET.SubElement(root, "table")
+table1 = ET.SubElement(root, "tr")
 table1.set('class', 'table1')
-table2 = ET.SubElement(table1, "tr")
+table2 = ET.SubElement(table1, "td")
 table2.set('class', 'table2')
 
 # Convert to XML #
@@ -59,8 +59,8 @@ index_page = """
             background-color: transparent;
             height: """ + str(height_value[0]) + """px;
             width: """ + str(width_value[0]) + """px;
-            margin-left: """ + str(x_value[0]) + """px;
-            margin-top: """ + str(y_value[0]) + """px;
+            left: """ + str(x_value[0]) + """px;
+            top: """ + str(y_value[0]) + """px;
             box-sizing: border-box;
             border: 5px solid yellow;
             display: block;

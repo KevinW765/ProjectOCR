@@ -14,43 +14,49 @@
         }
         .table1 {
              order: 3;
-             position: relative;
+             position: absolute;
              text-align: center;
              font-size: 10px;
              background-color: transparent;
              height: 39px;
              width: 74px;
-             margin-left: 33px;
-             margin-top: 39px;
+             left: 33px;
+             top: 39px;
              outline: 5px solid yellow;
          }
         .table2 {
+             align: right;
+             cellspacing:20px;
              order: 2;
-             position: relative;
+             position: absolute;
              text-align: center;
              font-size: 10px;
              background-color: transparent;
              height: 34px;
              width: 168px;
-             margin-left: 3px;
-             margin-top: 5px;
+             left: 3px;
+             top: 5px;
              outline: 5px solid yellow;
          }
         .table3 {
              order: 1;
-             position: relative;
+             position: absolute;
              text-align: center;
              font-size: 10px;
              background-color: transparent;
              height: 34px;
              width: 100px;
-             margin-left: 41px;
-             margin-top: 5px;
+             left: 41px;
+             top: 5px;
              outline: 5px solid yellow;
          }
     </style>
 </head>
 <body>
-        <table class="container"><tfoot class="table1">1</tfoot><tfoot class="table2">2</tfoot><tfoot class="table3">3</tfoot></table>
+<table class="container">
+    <th class="table1">1</th>
+    <td class="table2">2</td>
+    <td class="table3">3</td>
+</table>
 </body>
 </html>

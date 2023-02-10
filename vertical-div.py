@@ -32,11 +32,12 @@ table = {}
 table_css = ""
 
 # Build ElementTree #
+
 container = ET.Element("table")
 container.set('class', 'container')
 
 for i in range(len(x_value)):
-    table[i] = ET.SubElement(container, "table")
+    table[i] = ET.SubElement(container, "td")
     table[i].set('class', 'table'+str(i+1))
     table[i].text = str(i+1)
 
@@ -63,40 +64,40 @@ index_page = """
         }
         .table1 {
              order: 3;
-             position: relative;
+             position: absolute;
              text-align: center;
              font-size: 10px;
              background-color: transparent;
              height: """ + str(height_value[0]) + """px;
              width: """ + str(width_value[0]) + """px;
-             margin-left: """ + str(x_value[0]) + """px;
-             margin-top: """ + str(y_value[0]-y_value[2]-height_value[2]) + """px;
+             left: """ + str(x_value[0]) + """px;
+             top: """ + str(y_value[0]-y_value[2]-height_value[2]) + """px;
              outline: 5px solid yellow;
 
          }
         .table2 {
              order: 1;
-             position: relative;
+             position: absolute;
              text-align: center;
              font-size: 10px;
              background-color: transparent;
              height: """ + str(height_value[1]) + """px;
              width: """ + str(width_value[1]) + """px;
-             margin-left: """ + str(x_value[1]) + """px;
-             margin-top: """ + str(y_value[1]) + """px;
+             left: """ + str(x_value[1]) + """px;
+             top: """ + str(y_value[1]) + """px;
              outline: 5px solid yellow;
 
          }
         .table3 {
              order: 2;
-             position: relative;
+             position: absolute;
              text-align: center;
              font-size: 10px;
              background-color: transparent;
              height: """ + str(height_value[2]) + """px;
              width: """ + str(width_value[2]) + """px;
-             margin-left: """ + str(x_value[2]) + """px;
-             margin-top: """ + str(y_value[2]-y_value[1]-height_value[1]) + """px;
+             left: """ + str(x_value[2]) + """px;
+             top: """ + str(y_value[2]-y_value[1]-height_value[1]) + """px;
              outline: 5px solid yellow;
         }
     </style>
